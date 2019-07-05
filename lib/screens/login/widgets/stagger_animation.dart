@@ -33,6 +33,7 @@ class StaggerAnimation extends StatelessWidget {
       padding: const EdgeInsets.only(bottom: 50),
       child: InkWell(
         onTap: () => controller.forward(),
+        onDoubleTap: () => controller.reverse(),
         child: _buttonZoomOut.value == 60
             ? Container(
                 width: _buttonSqueeze.value,
