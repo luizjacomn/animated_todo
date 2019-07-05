@@ -33,30 +33,32 @@ class StaggerAnimation extends StatelessWidget {
       padding: const EdgeInsets.only(bottom: 50),
       child: InkWell(
         onTap: () => controller.forward(),
-        onDoubleTap: () => controller.reverse(),
-        child: _buttonZoomOut.value == 60
-            ? Container(
-                width: _buttonSqueeze.value,
-                height: 60,
-                alignment: Alignment.center,
-                decoration: BoxDecoration(
-                  color: Color.fromRGBO(247, 64, 106, 1.0),
-                  borderRadius: BorderRadius.all(
-                    Radius.circular(30),
+        child: Hero(
+          tag: 'fade',
+          child: _buttonZoomOut.value == 60
+              ? Container(
+                  width: _buttonSqueeze.value,
+                  height: 60,
+                  alignment: Alignment.center,
+                  decoration: BoxDecoration(
+                    color: Color.fromRGBO(247, 64, 106, 1.0),
+                    borderRadius: BorderRadius.all(
+                      Radius.circular(30),
+                    ),
+                  ),
+                  child: _buildInside(context),
+                )
+              : Container(
+                  width: _buttonZoomOut.value,
+                  height: _buttonZoomOut.value,
+                  decoration: BoxDecoration(
+                    color: Color.fromRGBO(247, 64, 106, 1.0),
+                    borderRadius: _buttonZoomOut.value < 500
+                        ? BorderRadius.all(Radius.circular(30))
+                        : BorderRadius.zero,
                   ),
                 ),
-                child: _buildInside(context),
-              )
-            : Container(
-                width: _buttonZoomOut.value,
-                height: _buttonZoomOut.value,
-                decoration: BoxDecoration(
-                  color: Color.fromRGBO(247, 64, 106, 1.0),
-                  borderRadius: _buttonZoomOut.value < 500
-                      ? BorderRadius.all(Radius.circular(30))
-                      : BorderRadius.zero,
-                ),
-              ),
+        ),
       ),
     );
   }

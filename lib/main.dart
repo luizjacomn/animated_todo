@@ -1,4 +1,4 @@
-import 'package:animated_todo/screens/home/home_screen.dart';
+import 'package:animated_todo/screens/login/login_screen.dart';
 import 'package:flutter/material.dart';
 
 void main() => runApp(MyApp());
@@ -9,7 +9,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Animation Todo',
       debugShowCheckedModeBanner: false,
-      home: HomeScreen(),
+      home: LoginScreen(),
     );
   }
 }
